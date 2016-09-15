@@ -1,10 +1,9 @@
 require 'byebug'
 
 def merge left_arr, right_arr
-
   result = []
   i = j = 0
-  while (left_arr.length - 1) >= i && (right_arr.size - 1)  >= j
+  while left_arr.length > i && right_arr.size > j
     if left_arr[i] > right_arr[j]
       result << right_arr[j]
       j += 1
@@ -13,8 +12,8 @@ def merge left_arr, right_arr
       i += 1
     end
   end
-  result << right_arr[j] if right_arr[j]
-  result << left_arr[i] if left_arr[i]
+  result += right_arr[j, right_arr.length] if right_arr[j]
+  result += left_arr[i, left_arr.length] if left_arr[i]
   result
 end
 
