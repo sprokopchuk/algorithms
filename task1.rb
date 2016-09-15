@@ -1,5 +1,3 @@
-require 'byebug'
-
 def merge left_arr, right_arr
   result = []
   i = j = 0
@@ -22,6 +20,6 @@ def merge_sort arr
   return arr if n < 2
   half = n.even? ? n / 2 : (n + 1) / 2
   left_arr = merge_sort arr[0, half]
-  rigth_arr = merge_sort arr[half, n]
-  merge left_arr, rigth_arr
+  right_arr = merge_sort arr[half, n]
+  merge left_arr, right_arr
 end
